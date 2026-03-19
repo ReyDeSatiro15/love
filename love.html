@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); 
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 2rem;
+        }
+        .quiz-container, .reasons-container { max-width: 700px; background: rgba(255,255,255,0.95); 
+                                             padding: 3rem; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; color: #ff6b9d; margin-bottom: 2rem; }
+        .question { font-size: 2rem; color: #333; margin-bottom: 3rem; }
+        .options { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+        button { background: #ff6b9d; color: white; border: none; padding: 1.5rem 3rem; font-size: 1.5rem; 
+                 border-radius: 15px; cursor: pointer; transition: all 0.3s; font-weight: 600; min-width: 150px; }
+        button:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255,107,157,0.4); }
+        button.no { background: #ff8e8e; }
+        .reasons-list { text-align: left; margin-top: 2rem; }
+        .reason { background: #fff0f5; padding: 1rem; margin: 1rem 0; border-radius: 10px; border-left: 5px solid #ff6b9d; 
+                  font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .back-btn { background: #e91e63 !important; margin-top: 2rem; }
+        @media (max-width: 600px) { .options { flex-direction: column; gap: 1rem; } h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+    <div id="quiz" class="quiz-container">
+        <h1>💕 Do You Love Me? 💕</h1>
+        <div class="question">Please be honest, baby!</div>
+        <div class="options">
+            <button onclick="showReasons()">1. YES 😍</button>
+            <button class="no" onclick="invalidAnswer()">2. NO 😢</button>
+        </div>
+    </div>
+
+    <div id="reasons" class="reasons-container" style="display: none;">
+        <h1>It's Ur 21st B'day so here are 21 Reasons(ofc i have a million more) y I Love You 💖</h1>
+        <div class="reasons-list">
+            <div class="reason">1. Your smile lights up my entire world</div>
+            <div class="reason">2. Your eyes are so beautiful(my fav body part of ur body btw)</div>
+            <div class="reason">3. You're kind and loving person</div>
+            <div class="reason">4. Your hugs feel like home</div>
+            <div class="reason">5. You make me want to be a better man</div>
+            <div class="reason">6. Our late-night talks and watches on meet are my favorite</div>
+            <div class="reason">7. Our dates are extra yummy and memorable because you are there </div>
+            <div class="reason">8. Your eyes sparkle when you're happy</div>
+            <div class="reason">9. You are my FAVOURITEST HUMANNN</div>
+            <div class="reason">10. Memories of us cooking togethor brings me pure joy</div>
+            <div class="reason">11. Your voice calms my soul</div>
+            <div class="reason">12. You make ordinary moments magical</div>
+            <div class="reason">13. Your strength inspires me daily</div>
+            <div class="reason">14. Holding your hand feels perfect</div>
+            <div class="reason">15. You love with your whole heart</div>
+            <div class="reason">16. Dancing with you is heaven</div>
+            <div class="reason">17. Your the bestest GF</div>
+            <div class="reason">18. You forgive my mistakes</div>
+            <div class="reason">19. Future dreams with you excite me</div>
+            <div class="reason">20. You're my everything</div>
+            <div class="reason">21. I love you more every single day ❤️</div>
+        </div>
+        <button class="back-btn" onclick="goToStart()">Back to Start 💕</button>
+    </div>
+
+    <script>
+        function invalidAnswer() {
+            alert("❌ INVALID! Come on baby, we both know the answer! 😘 Try again!");
+            document.querySelector('.question').innerHTML = "I know you love me... Just admit it! 💕";
+        }
+        
+        function showReasons() {
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('reasons').style.display = 'block';
+            // Confetti effect
+            for(let i=0; i<100; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerText = '💖';
+                    heart.style.cssText = `position:fixed;left:${Math.random()*100}vw;top:-10px;font-size:20px;pointer-events:none;animation:fall${i}s linear forwards`;
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 3000);
+                }, i*20);
+            }
+        }
+        
+        function goToStart() {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <style>
+        @keyframes fall0 {to{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+        @keyframes fall1 {to{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+        @keyframes fall2 {to{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+    </style>
+</body>
+</html>
